@@ -11,9 +11,6 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#faf8f7;color:#1a1a1a;mi
 :root{--r:#D42B2B;--ro:#E8400A;--roo:#F26B2B;--rd:#b32020;--rl:#fdf1ec;--grad:linear-gradient(135deg,#D42B2B 0%,#E8400A 55%,#F26B2B 100%);}
 .screen{display:none;min-height:100vh;}
 .screen.active{display:block;}
-.logo-svg-wrap{line-height:1;}
-
-/* GATE */
 .gate-top{background:var(--grad);padding:28px 24px 20px;position:relative;overflow:hidden;}
 .gate-top::after{content:'';position:absolute;top:-40px;right:-30px;width:180px;height:280px;background:rgba(255,255,255,0.06);transform:rotate(15deg);border-radius:4px;}
 .gate-hero{background:var(--grad);padding:20px 24px 36px;position:relative;}
@@ -30,8 +27,6 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#faf8f7;color:#1a1a1a;mi
 .btn-access{width:100%;padding:14px;background:var(--grad);color:#fff;border:none;border-radius:6px;font-size:15px;font-weight:700;cursor:pointer;margin-top:6px;}
 .btn-access:hover{opacity:0.92;}
 .mention{font-size:11px;color:#bbb;text-align:center;margin-top:14px;line-height:1.6;padding:0 4px;}
-
-/* CATALOGUE */
 .cat-header{background:var(--grad);padding:16px 20px 14px;display:flex;align-items:center;justify-content:space-between;position:relative;overflow:hidden;}
 .cat-header::after{content:'';position:absolute;top:-20px;right:-20px;width:100px;height:160px;background:rgba(255,255,255,0.06);transform:rotate(15deg);}
 .welcome-pill{background:rgba(255,255,255,0.2);border:1px solid rgba(255,255,255,0.35);border-radius:20px;padding:5px 12px;font-size:12px;color:#fff;font-weight:600;position:relative;z-index:1;}
@@ -54,8 +49,6 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#faf8f7;color:#1a1a1a;mi
 .card-footer{display:flex;justify-content:space-between;align-items:center;padding-top:10px;border-top:1px solid #f2efeb;}
 .card-montant{font-size:12.5px;font-weight:700;color:var(--ro);}
 .card-cible{font-size:11.5px;color:#bbb;max-width:160px;text-align:right;}
-
-/* DETAIL */
 #screen-detail{background:#faf8f7;position:fixed;top:0;left:0;right:0;bottom:0;overflow-y:auto;transform:translateX(100%);transition:transform .25s ease;z-index:100;}
 #screen-detail.open{transform:translateX(0);}
 .detail-header{background:var(--grad);padding:14px 20px;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:10;overflow:hidden;}
@@ -87,12 +80,9 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#faf8f7;color:#1a1a1a;mi
 .contact-box .cemail{font-size:13px;font-weight:700;color:#fff;}
 .contact-box .ctel{font-size:15px;color:#fff;font-weight:700;margin-top:4px;}
 .contact-box .csite{font-size:12px;color:rgba(255,255,255,0.6);margin-top:4px;}
-
-/* LEADS */
 .leads-section{margin:4px 20px 24px;background:#fff;border-radius:10px;border:1.5px solid #ede9e5;overflow:hidden;}
-.leads-toggle{width:100%;padding:13px 16px;background:none;border:none;font-size:14px;font-weight:600;color:#1a1a1a;cursor:pointer;display:flex;align-items:center;gap:8px;text-align:left;}
-.leads-toggle i{color:var(--ro);font-size:16px;}
-.leads-count{background:var(--grad);color:#fff;border-radius:10px;padding:2px 8px;font-size:12px;margin-left:auto;}
+.leads-toggle{width:100%;padding:13px 16px;background:none;border:none;font-size:13px;font-weight:500;color:#ccc;cursor:pointer;display:flex;align-items:center;gap:8px;text-align:left;}
+.leads-toggle i{color:#ddd;font-size:14px;}
 .leads-table{border-top:1px solid #f2efeb;padding:10px 16px 14px;}
 .lead-row{font-size:13px;padding:6px 0;border-bottom:1px solid #f5f2ef;display:flex;gap:10px;align-items:center;}
 .lead-row:last-child{border-bottom:none;}
@@ -104,7 +94,6 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#faf8f7;color:#1a1a1a;mi
 </head>
 <body>
 
-<!-- GATE -->
 <div class="screen active" id="screen-gate">
   <div class="gate-top">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 155 50" width="130" height="42" aria-label="Istrium Consulting">
@@ -133,7 +122,6 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#faf8f7;color:#1a1a1a;mi
   </div>
 </div>
 
-<!-- CATALOGUE -->
 <div class="screen" id="screen-catalogue">
   <div class="cat-header">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 155 50" width="110" height="36" aria-label="Istrium Consulting" style="position:relative;z-index:1;">
@@ -157,17 +145,16 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#faf8f7;color:#1a1a1a;mi
   </div>
   <div class="cards-wrap" id="cards-grid"></div>
   <div class="leads-section">
-    <button class="leads-toggle" onclick="toggleLeads()">
-      <i class="ti ti-users" aria-hidden="true"></i> Contacts collectés
-      <span class="leads-count" id="lead-count">0</span>
+    <button class="leads-toggle" onclick="askPin()">
+      <i class="ti ti-lock" aria-hidden="true"></i> Accès Istrium
     </button>
     <div class="leads-table leads-hidden" id="leads-panel">
       <div id="leads-list"><p style="font-size:13px;color:#ccc;padding:4px 0;">Aucun contact pour l'instant.</p></div>
+      <button onclick="exportCSV()" id="btn-export" style="display:none;margin-top:12px;width:100%;padding:10px;background:var(--grad);color:#fff;border:none;border-radius:6px;font-size:13px;font-weight:700;cursor:pointer;">⬇ Télécharger les contacts (Excel/CSV)</button>
     </div>
   </div>
 </div>
 
-<!-- DETAIL -->
 <div id="screen-detail">
   <div class="detail-header">
     <button class="btn-back" onclick="closeDetail()"><i class="ti ti-arrow-left" aria-hidden="true"></i> Retour</button>
@@ -179,7 +166,6 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#faf8f7;color:#1a1a1a;mi
 <script>
 const LEADS=[];
 const TAG={fiscal:'Crédit fiscal',subv:'Subvention / AAP',statut:'Statut',regional:'Région Sud'};
-
 const D=[
   {id:'cir',name:'CIR',full:'Crédit d\'impôt recherche',type:'fiscal',
    desc:'Réduit l\'impôt des entreprises qui investissent en R&D. Premier outil de financement de l\'innovation en France.',
@@ -188,7 +174,6 @@ const D=[
    projets:'Dépenses de personnel R&D, sous-traitances agréées, dotations aux amortissements, frais de brevets, veille technologique.',
    points:['Documentation technique rigoureuse indispensable en cas de contrôle fiscal','Remboursement immédiat possible pour JEI et PME','Cumulable avec le CII'],
    accroche:'Vos clients qui développent des logiciels, des procédés industriels ou des formulations peuvent récupérer 30 % de leurs dépenses. Avez-vous identifié des projets techniques chez eux ces 3 dernières années ?'},
-
   {id:'cii',name:'CII',full:'Crédit d\'impôt innovation',type:'fiscal',
    desc:'Complémentaire du CIR, il s\'applique aux dépenses de conception de prototypes ou pilotes de nouveaux produits.',
    cible:'PME uniquement (sens communautaire — < 250 salariés, CA < 50 M€)',
@@ -196,7 +181,6 @@ const D=[
    projets:'Conception-réalisation de prototypes ou installations pilotes de nouveaux produits. Le prototype n\'a pas besoin d\'être commercialisé.',
    points:['Distinct du CIR — les deux peuvent se cumuler','Réservé aux PME au sens européen','Taux porté à 30 % pour les entreprises situées en ZRR'],
    accroche:'Vos clients PME qui conçoivent de nouveaux produits — même sans R&D au sens strict — peuvent bénéficier du CII. Le prototype n\'a pas besoin d\'être commercialisé pour être éligible.'},
-
   {id:'cima',name:'CIMA',full:'Crédit d\'impôt métiers d\'art',type:'fiscal',
    desc:'Soutient les entreprises exerçant des métiers d\'art en leur remboursant une partie des dépenses liées à la création.',
    cible:'Entreprises relevant d\'un des 281 métiers d\'art listés par décret',
@@ -204,7 +188,6 @@ const D=[
    projets:'Dépenses de personnel affectées à la création, dotations aux amortissements des immobilisations dédiées, frais de dépôt de dessins et modèles.',
    points:['Liste des métiers éligibles fixée par décret en Conseil d\'État','Taux majoré à 15 % pour les dépenses confiées à des stylistes externes','Dispositif souvent méconnu des artisans et petits fabricants'],
    accroche:'Vos clients artisans d\'art, bijoutiers, ébénistes, luthiers ou modistes passent souvent à côté de ce crédit. Avez-vous des artisans dans votre portefeuille ?'},
-
   {id:'jei',name:'JEI / JEC',full:'Jeune entreprise innovante / Jeune entreprise de croissance',type:'statut',
    desc:'Statuts fiscaux et sociaux accordant des exonérations significatives aux jeunes entreprises innovantes ou à forte croissance.',
    cible:'PME < 8 ans, indépendantes — 15 % des charges en R&D (JEI) ou forte croissance (JEC)',
@@ -212,7 +195,6 @@ const D=[
    projets:'JEI : entreprises dont au moins 15 % des charges sont des dépenses de R&D. JEC (LFI 2024) : entreprises à forte croissance sans critère R&D.',
    points:['Moins de 8 ans, moins de 250 salariés, indépendance capitalistique requises','Cumulable avec le CIR','La JEC est un statut récent créé par la loi de finances 2024'],
    accroche:'Le statut JEI peut représenter plusieurs dizaines de milliers d\'euros d\'économies sociales dès la première année. Vos clients startups tech l\'ont-ils demandé à leur création ?'},
-
   {id:'f2030',name:'France 2030',full:'Plan d\'investissement national France 2030',type:'subv',
    desc:'Programme national de 54 Md€ pour financer l\'industrie du futur, la deeptech, la santé, l\'énergie et l\'agroalimentaire.',
    cible:'Startups, PME, ETI et grandes entreprises selon les appels à projets',
@@ -220,7 +202,6 @@ const D=[
    projets:'10 secteurs prioritaires : hydrogène, nucléaire, espace, santé, agroalimentaire, culture/créativité, industrie 4.0, transports, numérique, formation.',
    points:['Opéré principalement par Bpifrance et l\'ADEME','Dossier nécessitant une forte dimension technique et stratégique','Préparation en amont essentielle pour les AAP compétitifs'],
    accroche:'France 2030 finance des projets ambitieux dans 10 secteurs prioritaires. Vos clients industriels, medtech ou greentech ont-ils un projet de transformation ou d\'industrialisation à venir ?'},
-
   {id:'f2030paca',name:'France 2030 PACA',full:'France 2030 Régionalisé — Projets innovation individuels',type:'regional',
    desc:'Soutient les PME et ETI de PACA dans leurs projets d\'innovation à fort potentiel, technologique ou non. Cofinancé État + Région Sud.',
    cible:'PME et ETI implantées en PACA',
@@ -228,23 +209,20 @@ const D=[
    projets:'Faisabilité (max 18 mois) : études de marché, validations techniques, preuve de concept, planification RDI. Développement/pré-industrialisation (max 24 mois) : première série industrielle, montée en échelle, innovation de process ou service.',
    points:['Condition financière : fonds propres ≥ montant d\'aide demandé','Projets alignés sur les domaines stratégiques régionaux : Naturalité, Énergie, Écologie, Aérospatial, Défense, Optique/Photonique, Chimie verte, Santé/Silver économie, Économie bleue, Culture/Sport/Tourisme','Deux phases distinctes : subvention (faisabilité) et avance remboursable (développement)'],
    accroche:'Vos clients PME/ETI de PACA ayant un projet d\'innovation — même non technologique — peuvent accéder à jusqu\'à 500 k€. Le guichet ferme fin 2025 dans la limite des crédits. Ont-ils un projet en cours ou en préparation ?'},
-
-  {id:'suddév',name:'Sud Développement',full:'Projets d\'investissement individuels — Région Sud',type:'regional',
+  {id:'suddev',name:'Sud Développement',full:'Projets d\'investissement individuels — Région Sud',type:'regional',
    desc:'Soutient les projets d\'investissement structurants des PME/ETI de PACA pour renforcer leur compétitivité et générer des emplois durables.',
    cible:'PME et ETI implantées en PACA',
    montant:'Subvention : 100 k€ à 200 k€ / Avance remboursable : 100 k€ à 350 k€',plafond:'Montant minimum de dépenses éligibles : 500 k€',delai:'Candidatures au fil de l\'eau',
    projets:'Modernisation industrielle (équipements de production), croissance et montée en capacité (nouvelles lignes), implantation (relocalisation ou création de sites en Région Sud), transition écologique (réduction empreinte carbone, solutions bas carbone).',
    points:['Entreprises ancrées localement avec effectifs et CA significatifs','Taux majoré à 35 % pour projets alignés sur le plan climat "Gardons une cop d\'avance" ou ayant suivi "Le parcours sud industrie 4.0 carbone"','Projets à fort potentiel de création d\'emplois et d\'investissements régionaux'],
    accroche:'Vos clients industriels de PACA qui investissent dans leur outil de production peuvent obtenir jusqu\'à 200 k€ de subvention ou 350 k€ en avance remboursable. Ont-ils un projet de modernisation, d\'extension ou de relocalisation ?'},
-
   {id:'fam',name:'FAM / PPT',full:'FranceAgriMer — Promotion des vins en Pays Tiers',type:'subv',
    desc:'AAP annuel de FranceAgriMer pour soutenir les actions de promotion et valorisation des vins français à l\'international, hors UE.',
    cible:'Entreprises vitivinicoles, interprofessions, coopératives, négociants, GIE',
    montant:'50 % des dépenses éligibles',plafond:'Variable selon programme',delai:'Dépôt entre septembre et octobre chaque année — pour actions de janvier à décembre de l\'année suivante',
    projets:'Actions financées : dégustations, salons internationaux, relations presse, réseaux sociaux, voyages presse, études de marché, campagnes d\'information. Zones éligibles : tous pays hors UE (incl. Monaco, Andorre, Hong Kong…). Vins AOP, IGP ou VSIG avec cépage.',
-   points:['L\'AAP revient chaque année à l\'automne — anticipation indispensable','Seules les actions de communication et promotion listées dans le règlement sont éligibles (pas de remises, prospection terrain ou envois d\'échantillons non encadrés)','La demande de paiement exige factures, justificatifs complets et preuves d\'exécution irréprochables'],
+   points:['L\'AAP revient chaque année à l\'automne — anticipation indispensable','Seules les actions de communication et promotion listées dans le règlement sont éligibles','La demande de paiement exige factures, justificatifs complets et preuves d\'exécution irréprochables'],
    accroche:'Vos clients viticulteurs, coopératives ou négociants exportateurs peuvent récupérer 50 % de leurs dépenses de promotion à l\'international. L\'AAP ouvre à l\'automne — le diagnostic doit être fait dès maintenant. Avez-vous des clients dans le secteur viti-vinicole ?'},
-
   {id:'ademe',name:'ADEME',full:'Agence de la transition écologique',type:'subv',
    desc:'Financements dédiés à la transition énergétique : efficacité énergétique, mobilité durable, économie circulaire, décarbonation industrielle.',
    cible:'Entreprises engagées dans des projets de décarbonation ou d\'efficacité environnementale',
@@ -252,7 +230,6 @@ const D=[
    projets:'Programmes : Tremplin, Investissements d\'Avenir, Heat for Industry, Économie Circulaire, etc. Études de faisabilité, démonstrateurs, déploiement industriel.',
    points:['Dossiers requérant une étude de faisabilité préalable','Démonstration de l\'impact environnemental du projet exigée','Peut se combiner avec France 2030 pour des projets de décarbonation industrielle'],
    accroche:'Les obligations de décarbonation se renforcent. Vos clients industriels qui investissent dans leur performance énergétique peuvent accéder à des subventions ADEME significatives.'},
-
   {id:'bpi',name:'Bpifrance',full:'Financements et garanties Bpifrance',type:'subv',
    desc:'Banque publique d\'investissement : prêts sans garantie, subventions, garanties bancaires et accompagnement à l\'innovation.',
    cible:'PME et ETI en développement, innovation, export ou transformation',
@@ -272,7 +249,6 @@ function handleAccess(){
   document.getElementById('screen-gate').classList.remove('active');
   document.getElementById('screen-catalogue').classList.add('active');
 }
-
 function renderCards(filter){
   const list=filter==='tous'?D:D.filter(d=>d.type===filter);
   document.getElementById('cards-grid').innerHTML=list.map(d=>`
@@ -288,12 +264,10 @@ function renderCards(filter){
       </div>
     </div>`).join('');
 }
-
 function filterCards(f,el){
   document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
   el.classList.add('active');renderCards(f);
 }
-
 function openDetail(id){
   const d=D.find(x=>x.id===id);
   document.getElementById('detail-name').textContent=d.name;
@@ -316,11 +290,24 @@ function openDetail(id){
     </div>`;
   document.getElementById('screen-detail').classList.add('open');
 }
-
 function closeDetail(){document.getElementById('screen-detail').classList.remove('open');}
+function askPin(){
+  const pin=prompt('Code d\'accès Istrium :');
+  if(pin==='1306'){toggleLeads();}
+  else if(pin!==null){alert('Code incorrect.');}
+}
 function toggleLeads(){document.getElementById('leads-panel').classList.toggle('leads-hidden');}
+function exportCSV(){
+  const rows=[['Email','Téléphone','Heure'],...LEADS.map(l=>[l.email,l.tel,l.ts])];
+  const csv=rows.map(r=>r.join(';')).join('\n');
+  const blob=new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8;'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;a.download='contacts-salon-istrium.csv';a.click();
+  URL.revokeObjectURL(url);
+}
 function updateLeads(){
-  document.getElementById('lead-count').textContent=LEADS.length;
+  document.getElementById('btn-export').style.display=LEADS.length>0?'block':'none';
   document.getElementById('leads-list').innerHTML=LEADS.length===0
     ?'<p style="font-size:13px;color:#ccc;padding:4px 0;">Aucun contact pour l\'instant.</p>'
     :LEADS.map(l=>`<div class="lead-row"><span class="lead-email">${l.email}</span><span class="lead-tel">${l.tel}</span><span class="lead-time">${l.ts}</span></div>`).join('');
