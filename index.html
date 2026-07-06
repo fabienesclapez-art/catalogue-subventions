@@ -134,7 +134,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#faf8f7;color:#1a1a1a;mi
   </div>
   <div class="filter-row">
     <div class="chip active" onclick="filterCards('tous',this)">Tous</div>
-    <div class="chip" onclick="filterCards('fiscal',this)">Crédits fiscaux</div>
+    <div class="chip" onclick="filterCards('fiscal',this)">Crédits d'impôts</div>
     <div class="chip" onclick="filterCards('statut',this)">Statuts</div>
     <div class="chip" onclick="filterCards('subv',this)">Subventions</div>
     <div class="chip" onclick="filterCards('regional',this)">Région Sud</div>
@@ -165,7 +165,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#faf8f7;color:#1a1a1a;mi
 
 <script>
 const LEADS=[];
-const TAG={fiscal:'Crédit fiscal',subv:'Subvention / AAP',statut:'Statut',regional:'Région Sud',ecologie:'Écologie',digital:'Digital',viticole:'Viticole',tourisme:'Tourisme'};
+const TAG={fiscal:'Crédit d\'impôt',subv:'Subvention / AAP',statut:'Statut',regional:'Région Sud',ecologie:'Écologie',digital:'Digital',viticole:'Viticole',tourisme:'Tourisme'};
 
 const D=[
   {id:'cir',name:'CIR',full:'Crédit d\'impôt recherche',type:'fiscal',
